@@ -7,8 +7,11 @@ all: $(TARGET)
 main.o: main.c
 	clang -c -o main.o main.c
 
-$(TARGET): main.o
-	clang -o $(TARGET) main.o
+queue.o: queue.c queue.h
+	clang -c -o queue.o queue.c
+
+$(TARGET): main.o queue.o
+	clang -o $(TARGET) main.o queue.o
 
 clean:
-	rm -rf ${TARGET} main.o
+	rm -rf ${TARGET} main.o queue.o
