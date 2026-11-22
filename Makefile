@@ -14,4 +14,4 @@ $(TARGET): main.o queue.o
 	clang -o $(TARGET) main.o queue.o
 
 clean:
-	rm -rf ${TARGET} main.o queue.o
+	cmd /C "del /Q *.o lab3.exe 2>nul"
