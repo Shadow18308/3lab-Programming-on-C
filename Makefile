@@ -1,17 +1,17 @@
 TARGET = lab3
-
-.PHONY: all clean install uninstall
+FLAGS = -Wall -Wextra
+.PHONY: all clean
 
 all: $(TARGET)
 
 main.o: main.c
-	clang -c -o main.o main.c
+	clang ${FLAGS} -c -o main.o main.c
 
 queue.o: queue.c queue.h
-	clang -c -o queue.o queue.c
+	clang ${FLAGS} -c -o queue.o queue.c
 
 $(TARGET): main.o queue.o
-	clang -o $(TARGET) main.o queue.o
+	clang ${FLAGS} -o $(TARGET) main.o queue.o
 
 clean:
-	cmd /C "del /Q *.o lab3.exe 2>nul"
+	cmd /C "del *.o lab3.exe 2>nul"
